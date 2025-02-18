@@ -1,10 +1,10 @@
-import "~/styles/globals.css";
+import "../styles/globals.css";
 
 import local from "next/font/local"
-import {Archivo} from "next/font/google"
+import { Archivo } from "next/font/google"
 
 import React from "react";
-import { NavBar } from "~/components/NavBar";
+import { NavBar } from "../components/NavBar";
 
 const mainFont = Archivo({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -37,7 +37,7 @@ export default function RootLayout({
             className={`${displayFont.variable} ${mainFont.className}`}
         >
             <body className=" text-abyss tracking-tight">
-                <NavBar/>
+                <NavBar />
                 {children}
             </body>
         </html>

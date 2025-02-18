@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AnimLetters from "~/components/animatedLetters/anim-letters";
+import AnimLetters from "../components/animatedLetters/anim-letters";
 
 export default function HomePage() {
     return (
