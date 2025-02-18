@@ -5,7 +5,7 @@ import { ReactNode, useEffect, useRef, useState } from "react"
 import { mat3 } from "three/src/nodes/TSL.js"
 import { getCurrentStack } from "three/tsl"
 import { useScreenSize } from "use-screen-size"
-import { fitRange } from "~/lib/utils"
+import { fitRange } from "../../lib/utils"
 
 export default function AnimLetters({
     children,
