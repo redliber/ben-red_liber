@@ -1,8 +1,8 @@
 {
-  "name": "react-three-next",
+  "name": "ben-red_liber",
   "version": "2.0.0",
   "authors": [
-    "Renaud ROHLINGER <https://twitter.com/onirenaud>"
+    "Bernardus Bernard x.com/bb_redliber"
   ],
   "license": "MIT",
   "private": true,
@@ -20,13 +20,16 @@
     "@ducanh2912/next-pwa": "^10.0.0",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
+    "framer-motion": "^12.4.3",
     "glsl-random": "^0.0.5",
-    "next": "^14.0.4",
+    "next": "^15.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.160.0",
     "three-stdlib": "^2.28.9",
-    "tunnel-rat": "^0.1.2"
+    "tunnel-rat": "^0.1.2",
+    "use-screen-size": "^1.4.11"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.0.4",
