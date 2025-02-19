@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { constColors } from "./src/lib/const.ts";
 
 module.exports = {
   mode: 'jit',
@@ -12,9 +13,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'blood': '#E23C46',
-        'abyss': '#231F1A',
-        'beige': '#F4DFC3',
+        'blood': constColors.blood,
+        'bloodDark': constColors.bloodDark,
+        'dirtyYellow': constColors.dirtyYellow,
+        'abyss': constColors.abyss,
+        'beige': constColors.beige,
       }
     },
   },

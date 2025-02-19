@@ -1,58 +1,23 @@
 "use client"
-
-import { inView, motion, stagger, useAnimate, useInView } from "framer-motion"
+import { AnimationOptions, hover, inView, motion, stagger, transform, useAnimate, useInView } from "framer-motion"
 import { ReactNode, useEffect, useRef, useState } from "react"
-import { mat3 } from "three/src/nodes/TSL.js"
-import { getCurrentStack } from "three/tsl"
+import { constColors, type AnimLetter } from "../../lib/const"
 import { useScreenSize } from "use-screen-size"
-import { fitRange } from "../../lib/utils"
+import { fitRange } from "~/lib/utils"
 
-export default function AnimLetters({
-    children,
-    className
-}: {
-    children: ReactNode
-    className: string
-}) {
-    let lettersArray
-    if (typeof children == "string" && children) {
-        lettersArray = children.split("")
-
-        return (
-            <div className={`${className} flex flex-row gap-0`}>
-                {
-                    lettersArray.map((item, index) => {
-                        if (item == " ") {
-                            return (
-                                <p key={index}>
-                                    &nbsp;&nbsp;
-                                </p>
-                            )
-                        }
-                        return (
-                            <Letter
-                                key={index}
-                                idx={index}
-                                letter={item}
-                            />
-                        )
-                    })
-                }
-            </div>
-        )
-    }
-}
-
-function Letter({
+export default function AnimLetter({
     letter,
     idx,
-}: {
-    letter: String
-    idx: number
-}) {
+    initColor = constColors.abyss,
+    hoverColor = constColors.beige,
+    mouseDownColor = constColors.dirtyYellow,
+    inViewTransition,
+    floating,
+    maxFloat = 25
+}: AnimLetter) {
     const [scope, animate] = useAnimate()
     const [hovered, setHovered] = useState(false)
-    const [maxFloat, setMaxFloat] = useState(25)
+    const [useMaxFloat, setMaxFloat] = useState(maxFloat)
     const [maxEntrance, setMaxEntrance] = useState(-150)
     const [indicateDone, setDone] = useState(false)
     const [currentYPos, setYPos] = useState(0)
@@ -70,16 +35,14 @@ function Letter({
     const rotationRange = fitRange(Math.random(), 0, 1, 8, 12)
     const rotateAmt = Math.random() > 0.5 ? rotationRange : -rotationRange
 
-    const floatingRange = fitRange(Math.random(), 0, 1, -maxFloat, maxFloat)
+    const floatingRange = fitRange(Math.random(), 0, 1, -useMaxFloat, useMaxFloat)
     const floatingAmt = Math.random() > 0.5 ? floatingRange : -1 * floatingRange
 
-    const hoveredState = {
-        anim: { scale: 1.1, rotate: rotateAmt * 0.8 },
-        transition: { duration: 0.3, type: "spring" }
-    }
+    const hoveredAnim = { scale: 1.1, rotate: rotateAmt * 0.8, color: hoverColor }
+    const hoveredTransition: AnimationOptions = { duration: 0.3, type: "spring" }
 
     useEffect(() => {
-        if (isInView && !indicateDone) {
+        if (isInView && !indicateDone && inViewTransition) {
             animate([
                 [
                     scope.current,
@@ -99,11 +62,29 @@ function Letter({
     }, [isInView])
 
     useEffect(() => {
+        const translateY = idx % 2 ? -maxFloat : maxFloat
+        if (!inViewTransition) setDone(true)
+        if (floating && indicateDone) {
+            animate(scope.current,
+                {
+                    translateY: [translateY,-translateY]
+                },
+                {
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                    type: "tween"
+                }
+            )
+        }
+    }, [hovered, animate, scope, indicateDone])
+
+    useEffect(() => {
         hovered ? hoverLetter() : hoverLetterEnd()
     }, [hovered, animate, scope])
 
     function hoverLetter() {
-        animate(scope.current, hoveredState.anim, hoveredState.transition)
+        animate(scope.current, hoveredAnim, hoveredTransition)
     }
 
     function mouseDownLetter() {
@@ -112,6 +93,7 @@ function Letter({
             {
                 scale: 1.2,
                 rotate: rotateAmt * 0.5,
+                color: mouseDownColor
             }, {
             duration: 0.5, type: "spring"
         }
@@ -119,11 +101,11 @@ function Letter({
     }
 
     function mouseUpLetter() {
-        animate(scope.current, hoveredState.anim, hoveredState.transition)
+        animate(scope.current, hoveredAnim, hoveredTransition)
     }
 
     function hoverLetterEnd() {
-        animate(scope.current, { scale: 1, rotate: 0 }, { duration: 1, type: "spring", })
+        animate(scope.current, { scale: 1, rotate: 0, color: initColor }, { duration: 1, type: "spring", })
 
     }
 
@@ -135,7 +117,7 @@ function Letter({
                 onMouseOut={() => setHovered(false)}
                 onMouseDown={() => mouseDownLetter()}
                 onMouseUp={() => mouseUpLetter()}
-                style={{ opacity: 0 }}
+                style={{ color: initColor }}
             >
                 {letter}
             </p>

@@ -5,6 +5,7 @@ import { Archivo } from "next/font/google"
 
 import React from "react";
 import { NavBar } from "../components/NavBar";
+import Cursor from "~/components/cursor";
 
 const mainFont = Archivo({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -36,9 +37,10 @@ export default function RootLayout({
             lang="en"
             className={`${displayFont.variable} ${mainFont.className}`}
         >
-            <body className=" text-abyss tracking-tight">
+            <body className=" text-abyss tracking-tight bg-blood">
                 <NavBar />
                 {children}
+                <Cursor/>
             </body>
         </html>
     )
