@@ -15,7 +15,7 @@ export default function HomePage() {
     ]
 
     const professionsDetails = [
-        'the best art sculpts skeletons out of flesh, crafting truth by exposing the essence of being.🎨',
+        'best art sculpts skeletons out of flesh, crafting truth by exposing the essence of being.🎨',
         'The best stories are written in blood, tapping into the primeval circuitries of our subconscious.🖋️',
         'The best experiences pump the heart, accelerating time with us none the wiser.💻'
     ]
@@ -36,7 +36,7 @@ export default function HomePage() {
                     </div>
                     <div className="items-center self-center">
                         <AnimWord
-                            className="text-[45vw] md:text-[42vw] font-display text-center select-none -z-[100] leading-[0.75] flex md:flex-row flex-col"
+                            className="text-[45vw] md:text-[42vw] font-display text-center select-none -z-[100] leading-[0.75] flex flex-row"
                             inViewTransition={true}
                             floating={true}
                         >
