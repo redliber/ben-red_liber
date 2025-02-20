@@ -34,28 +34,6 @@ export default function Cursor() {
                     border: "6px solid white",
                 }}
             />
-
-            {/* <AnimatedCursor
-                color="255,10,10"
-                innerSize={0}
-                outerSize={215}
-                innerScale={0.5}
-                outerScale={1.75}
-                outerAlpha={0.75}
-                trailingSpeed={1.75}
-                innerStyle={{
-                    mixBlendMode: "plus-lighter",
-
-                }}
-                outerStyle={{
-                    mixBlendMode: "multiply",
-                    // border: "4px solid white",
-                    background:
-                        "radial-gradient(circle, rgba(255,0,0,1) 35%, rgba(255,0,0,0) 100%),url(https://grainy-gradients.vercel.app/noise.svg)",
-                    filter: "contrast(170%) brightness(1000%)",
-
-                }}
-            /> */}
         </>
         
     );

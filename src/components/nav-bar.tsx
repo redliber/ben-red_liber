@@ -65,8 +65,8 @@ export function NavBar() {
     }
 
     return (
-        <header className="flex sticky top-0 p-2 md:p-4 w-full z-10 overflow-clip bg-transparent">
-            <div className="none text-lg font-semibold leading-5">
+        <header className="flex flex-row sticky top-0 p-2 md:p-4 w-full z-10 overflow-clip bg-transparent justify-between">
+            <div className="text-lg font-semibold leading-5">
                 {paths.map((item, index) => {
                     const link = item == "home" ? "" : item;
                     return (
@@ -84,7 +84,7 @@ export function NavBar() {
                     );
                 })}
             </div>
-            <div className="grow justify-items-end">
+            <div className="">
                 <Image
                     ref={scope}
                     onMouseOver={() => setHovered(true)}

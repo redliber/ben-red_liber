@@ -41,7 +41,9 @@ export default function RootLayout({
             <body className=" text-abyss tracking-tight bg-blood">
                 <NavBar />
                 {children}
-                <Cursor/>
+                <div className="hidden md:block">
+                    <Cursor/>
+                </div>
                 <CustomFooter/>
             </body>
         </html>
