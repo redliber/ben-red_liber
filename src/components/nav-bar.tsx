@@ -65,20 +65,20 @@ export function NavBar() {
     }
 
     return (
-        <header className="flex absolute p-2 md:p-4 w-full z-10 overflow-clip">
+        <header className="flex sticky top-0 p-2 md:p-4 w-full z-10 overflow-clip bg-transparent">
             <div className="none text-lg font-semibold leading-5">
                 {paths.map((item, index) => {
                     const link = item == "home" ? "" : item;
                     return (
                         <Link key={index} href={`/${link}`}>
                             {link == pathName ? (
-                                <div className="bg-transparent text-beige active:text-dirtyYellow hover:text-bloodDark">
+                                <p className="text-beige active:text-dirtyYellow hover:text-abyss">
                                     {item.toUpperCase()}
-                                </div>
+                                </p>
                             ) : (
-                                    <div className="bg-transparent active:text-dirtyYellow hover:text-beige">
+                                    <p className="text-bloodDark active:text-dirtyYellow hover:text-beige mix-blend-screen">
                                     {item.toUpperCase()}
-                                </div>
+                                </p>
                             )}
                         </Link>
                     );

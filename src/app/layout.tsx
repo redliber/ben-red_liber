@@ -4,7 +4,8 @@ import local from "next/font/local"
 import { Archivo } from "next/font/google"
 
 import React from "react";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components/nav-bar";
+import CustomFooter  from "../components/custom-footer";
 import Cursor from "~/components/cursor";
 
 const mainFont = Archivo({
@@ -41,6 +42,7 @@ export default function RootLayout({
                 <NavBar />
                 {children}
                 <Cursor/>
+                <CustomFooter/>
             </body>
         </html>
     )

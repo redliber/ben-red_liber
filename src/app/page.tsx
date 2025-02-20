@@ -5,6 +5,7 @@ import AnimLetter from "~/components/animatedLetters/anim-letter";
 import { useRef, useState } from "react";
 import { useIntersectionObserver, useWindowScroll } from "@uidotdev/usehooks";
 import Link from "next/link";
+import { constColors } from "~/lib/const";
 
 export default function HomePage() {
     const professions = [
@@ -14,9 +15,9 @@ export default function HomePage() {
     ]
 
     const professionsDetails = [
-        'President Trump said: “Well, we have a situation where we haven’t had elections in Ukraine.🎨',
-        'Where we have martial law, martial law essentially, in Ukraine, where the leader — I hate to say it — he’s down to four per cent approval rating.🖋️',
-        'It’s a country that’s been blown to smithereens. Most of the cities are laying on their side.💻'
+        'the best art sculpts skeletons out of flesh, crafting truth by exposing the essence of being.🎨',
+        'The best stories are written in blood, tapping into the primeval circuitries of our subconscious.🖋️',
+        'The best experiences pump the heart, accelerating time with us none the wiser.💻'
     ]
 
     const [useDesigner, setDesigner] = useState(false)
@@ -28,8 +29,8 @@ export default function HomePage() {
 
     return (
         <>
-            <main className="">
-                <div className="bg-blood flex flex-col justify-items-center content-center justify-between align-middle min-h-svh max-w-[100vw] p-2 md:p-4 overflow-hidden">
+            <main className=" ">
+                <div className="bg-blood flex flex-col justify-items-center content-center justify-between align-middle min-h-[90svh] max-w-[100vw] p-2 md:p-4 overflow-hidden">
                     <div>
                         &nbsp;
                     </div>
@@ -67,28 +68,64 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className="bg-white p-2 md:p-4">
-                    <p className="text-5xl group">
+                    <p className="text-5xl overflow-hidden md:text-7xl group">I believe that&nbsp;
                         {professionsDetails.map((item, index) => {
                             return (
                                 <SpanItems hovered={hovered} index={index} item={item} key={index}/>
                         )})}
                     </p>
                 </div>
-                <div className="bg-abyss h-96">
-                    <p className="font-display text-blood text-9xl">CREATIVITY AT THE SPEED OF DARK</p>
+                <div className="bg-abyss p-2 md:p-4 min-h-[200vh] flex flex-col justify-end">
+                    <p className="font-black text-blood text-[12vw] md:text-[10vw] leading-[0.8]">CREATIVITY AT THE SPEED OF&nbsp;
+                        {
+                            ["D","A","R","K"].map((item, index) => (
+                                <span key={index} className="hover:text-abyss active:text-zinc-500 transition duration-500 text-bloodDark">
+                                    {item}
+                                </span>
+                            ))
+                        }
+                    </p>
                 </div>
-                <div className="p-2 md:p-4 ">
-                    <div className="my-32">
+                <div className="px-2 md:px-4 py-42 md:py-48 flex flex-col items-end min-h-[60vh] overflow-hidden">
+                    <div className="my-32 justify-end text-[12vw] md:text-[10vw] leading-[0.8]">
                         <AnimWord
-                            className="text-8xl md:text-8xl font-black text-center select-none -z-[100] flex flex-wrap"
+                            className="justify-end font-black text-right select-none -z-[100] flex flex-wrap"
                             // inViewTransition={true}
                             floating={false}
                         >
-                            DON'T BE SHY, CONTACT ME
+                            DON'T BE SHY
+                        </AnimWord>
+                        <AnimWord
+                            className="justify-end font-black text-right select-none -z-[100] flex flex-wrap"
+                            // inViewTransition={true}
+                            floating={false}
+                        >
+                            DON'T BE SHY
+                        </AnimWord>
+                        <AnimWord
+                            className="justify-end font-black text-right select-none -z-[100] flex flex-wrap"
+                            // inViewTransition={true}
+                            floating={false}
+                        >
+                            DON'T BE SHY
+                        </AnimWord>
+                        <AnimWord
+                            className="justify-end font-black text-right select-none -z-[100] flex flex-wrap"
+                            inViewTransition={true}
+                            floating={true}
+                            maxFloat={10}
+                            initColor={constColors.beige}
+                            hoverColor={constColors.bloodDark}
+                            mouseDownColor={constColors.dirtyYellow}
+                        >
+                            CONTACT ME
                         </AnimWord>
                     </div>
-                    <div id="contact" className="items-end content-end justify-end justify-items-end">
-                        <p>redliber@tutamail.com</p>
+                    <div id="contact" className="items-end content-end justify-end justify-items-end text-lg leading-5 md:text-5xl mt-20">
+                        <a href="mailto:redliber@tutamail.com" className="hover:text-beige underline">redliber@tutamail.com</a>
+                        <p className="hover:text-bloodDark">Whatsapp: <span className="underline hover:text-beige">+1 778 985 2178</span></p>
+                        <p className="hover:text-bloodDark">Phone: <span className="underline hover:text-beige">+62 812 950 72726</span></p>
+                        <a href="https://x.com/bb_redliber" className="hover:text-bloodDark">X: <span className="underline hover:text-beige">@bb_redliber</span></a>
                     </div>
                     
                 </div>
