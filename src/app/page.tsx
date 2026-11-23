@@ -46,7 +46,7 @@ export default function HomePage() {
                     <div className="flex flex-col md:flex-row justify-between text-xl z-10 leading-6 sticky top-0">
                         <div className="flex flex-col font-semibold md:flex-row md:gap-4">
                             {professions.map((item, index) => (
-                                <div 
+                                <div
                                     key={index}
                                     onMouseEnter={() => {
                                         setHovered(index)
@@ -75,7 +75,10 @@ export default function HomePage() {
                         )})}
                     </p>
                 </div>
-                <div className="bg-abyss p-2 md:p-4 min-h-[200vh] flex flex-col justify-end">
+          <div className="bg-abyss p-2 md:p-4 min-h-[100vh] flex flex-col justify-evenly">
+            <div className="flex flex-col align-bottom w-full">
+              <Link href={"/rates"}><p className="text-6xl text-white tracking-[-0.0125em] underline hover:text-blood transition-transform ease-in-out">↪ Find out my rates here</p></Link>
+            </div>
                     <p className="font-black text-blood text-[12vw] md:text-[10vw] leading-[0.8]">CREATIVITY AT THE SPEED OF&nbsp;
                         {
                             ["D","A","R","K"].map((item, index) => (
@@ -87,7 +90,7 @@ export default function HomePage() {
                     </p>
                 </div>
                 <div className="px-2 md:px-4 py-42 md:py-48 flex flex-col items-end min-h-[60vh] overflow-hidden">
-                    <div className="my-32 justify-end text-[12vw] md:text-[10vw] leading-[0.8]">
+                    <div className="my-32 justify-end text-[12vw] md:text-[10vw] leading-[0.8]" id="contact">
                         <AnimWord
                             className="justify-end font-black text-right select-none -z-[100] flex flex-wrap"
                             // inViewTransition={true}
@@ -121,13 +124,12 @@ export default function HomePage() {
                             CONTACT ME
                         </AnimWord>
                     </div>
-                    <div id="contact" className="items-end content-end justify-end justify-items-end text-lg leading-5 md:text-5xl mt-20">
-                        <a href="mailto:redliber@tutamail.com" className="hover:text-beige underline">redliber@tutamail.com</a>
-                        <p className="hover:text-bloodDark">Whatsapp: <span className="underline hover:text-beige">+1 778 985 2178</span></p>
-                        <p className="hover:text-bloodDark">Phone: <span className="underline hover:text-beige">+62 812 950 72726</span></p>
-                        <a href="https://x.com/bb_redliber" className="hover:text-bloodDark">X: <span className="underline hover:text-beige">@bb_redliber</span></a>
+                    <div  className="items-end content-end justify-end justify-items-end text-lg leading-5 md:text-5xl mt-20">
+                        <a href="mailto:redliber@tutamail.com" className="hover:text-beige underline">bernard@redliber.art</a>
+                        <p className="hover:text-bloodDark">whatsapp: <span className="underline hover:text-beige">+62 812 950 72726</span></p>
+                        <a href="https://x.com/bb_redliber" className="hover:text-bloodDark">instagram: <span className="underline hover:text-beige">@b_bernard_chenier</span></a>
                     </div>
-                    
+
                 </div>
             </main>
         </>

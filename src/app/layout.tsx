@@ -38,7 +38,7 @@ export default function RootLayout({
             lang="en"
             className={`${displayFont.variable} ${mainFont.className}`}
         >
-            <body className=" text-abyss tracking-tight bg-blood">
+            <body className=" text-abyss tracking-[-0.0125em] bg-blood">
                 <NavBar />
                 {children}
                 <div className="hidden md:block">

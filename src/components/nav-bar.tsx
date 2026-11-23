@@ -11,7 +11,7 @@ export function NavBar() {
     const usePath = usePathname().split("");
     const pathName = usePath.slice(1).join("");
 
-    const paths = ["home", "works", "blog"];
+    const paths = ["home", "rates"];
 
     const [scope, animate] = useAnimate()
     const [useHovered, setHovered] = useState(false)
